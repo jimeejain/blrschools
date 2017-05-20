@@ -1,0 +1,46 @@
+<section ng-hide="schools.length" class="w3-panel w3-yellow">
+    No schools to show
+</section>
+<section ng-show="schools.length">
+    <div class="w3-bar w3-center pagination-bar">
+        <button class="w3-button w3-teal" ng-class="{'w3-grey': (pageIndex == 0)}" ng-click="updatePageIndex(0)">First Page</button>
+        <button class="w3-button w3-teal" ng-class="{'w3-grey': (pageIndex == 0)}" ng-click="updatePageIndex(pageIndex - 1)">Previous Page</button>
+        <button class="w3-button w3-grey">Current {{pageIndex + 1}}</button>
+        <button class="w3-button w3-teal" ng-class="{'w3-grey': (pageIndex == maxPageIndex)}" ng-click="updatePageIndex(pageIndex + 1)">Next Page</button>
+        <button class="w3-button w3-teal" ng-class="{'w3-grey': (pageIndex == maxPageIndex)}" ng-click="updatePageIndex(maxPageIndex)">Last Page</button>
+    </div>
+    <table class="w3-table w3-striped w3-hoverable w3-card-4">
+        <thead>
+            <tr class="tableHeader">
+                <th ng-click="sortField('schoolid')">Id <span>{{(sortKey != 'schoolid') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('schoolname')">Name <span>{{(sortKey != 'schoolname') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('medium_of_inst')">Medium <span>{{(sortKey != 'medium_of_inst') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('category')">Category <span>{{(sortKey != 'category') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('gender')">Gender <span>{{(sortKey != 'gender') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('block')">Location <span>{{(sortKey != 'block') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('cluster')">Cluster <span>{{(sortKey != 'cluster') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('address')">Address <span>{{(sortKey != 'address') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('area')">Area <span>{{(sortKey != 'area') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('pincode')">Pincode <span>{{(sortKey != 'pincode') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('landmark')">Landmark <span>{{(sortKey != 'landmark') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+                <th ng-click="sortField('busroutes')">Bus Routes <span>{{(sortKey != 'busroutes') ? '&nbsp;' : isReverseSort ? '&#x25B2;' : '&#x25BC;'}}</span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="school in schools | orderBy : sortKey : isReverseSort | limitTo : pageSize : pageSize*pageIndex">
+                <td>{{school.schoolid}}</td>
+                <td>{{school.schoolname}}</td>
+                <td>{{school.medium_of_inst}}</td>
+                <td>{{school.category}}</td>
+                <td>{{school.gender}}</td>
+                <td>{{school.block}}</td>
+                <td>{{school.cluster}}</td>
+                <td>{{school.address}}</td>
+                <td>{{school.area}}</td>
+                <td>{{school.pincode}}</td>
+                <td>{{school.landmark}}</td>
+                <td>{{school.busroutes}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

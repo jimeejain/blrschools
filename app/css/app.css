@@ -1,0 +1,36 @@
+.sidebar {
+    max-height: calc(100vh - 55px);
+    overflow-y: auto;
+ }
+        
+label {
+    width: 100%;
+    display: inline-block;
+}
+
+.contentbar {
+    max-height: calc(100vh - 55px);
+    overflow: auto;
+}
+
+.tableHeader th {
+    cursor: pointer;
+}
+
+.pagination-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 25%;
+    right: 0;
+    text-align: center;
+    width: 75%;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

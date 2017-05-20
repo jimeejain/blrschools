@@ -1,0 +1,29 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/app/css/w3.css" rel="stylesheet">
+    <link href="/app/css/app.css" rel="stylesheet">
+</head>
+
+<body ng-app="myApp" ng-controller="mainController" class="noselect">
+    <div class="w3-bar w3-black">
+        <div class="w3-row">
+            <div class="w3-col m8 w3-padding">School App</div>
+            <div class="w3-col m4 w3-padding">
+                <input type="text" ng-model="query" ng-change="update()" class="w3-input" placeholder="search here" />
+            </div>
+        </div>
+    </div>
+    <div class="w3-row">
+        <header class="w3-col m3 sidebar"></header>
+        <school-list schools="schools" class="w3-col m9 contentbar"></school-list>
+    </div>
+    <script src="./app/js/angular.min.js"></script>
+    <script src="./app/js/app.js"></script>
+    <script src="./app/directives/schoolList/list.js"></script>
+    <script src="./app/directives/header/header.js"></script>
+</body>
+
+</html>

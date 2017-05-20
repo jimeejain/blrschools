@@ -1,0 +1,13 @@
+<section class="w3-container">
+    <div ng-repeat="(key, valueObj) in filterObj" class="w3-card" ng-show="hasKeys(valueObj)">
+        <h5 class="w3-panel w3-teal">{{filterClass[key]}}</h5>
+        <ul class="w3-ul w3-hoverable">
+            <li ng-repeat="(value, status) in valueObj">
+                <label>
+                    <input type="checkbox" class="w3-check" ng-model="valueObj[value]" ng-checked="status" ng-change="update()" />
+                    {{value}}
+                </label>
+            </li>
+        </ul>
+    </div>
+</section>
